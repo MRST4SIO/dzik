@@ -1,0 +1,29 @@
+#obraz {
+    display: none;
+    position: relative;
+    border: 1px solid  black;
+    height: 90%;
+    margin: 0 auto;
+
+}
+#container{
+    text-align: center;
+}
+#img_container
+{
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    height: 70vh;
+    position: relative;
+}
+#but{
+    width: 100vw;
+    height: 100vh;
+}
+
+body {
+    height: 95vh;
+    width: 95vw;
+    user-select: none;
+}

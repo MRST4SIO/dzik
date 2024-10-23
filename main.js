@@ -1,18 +1,43 @@
-var i = 0;
-function myfunction() {
-    i++;
-    let str = "hello " + i;
-    document.getElementById("text").innerHTML = str;
+var i = 1;
+        let licznik = 0;
+        let interval = 2000;
+        let myInterval;
 
-}
-let myInterval = setInterval(myfunction, 1000);
+        function restartInterval() {
+            clearInterval(myInterval);
+            myInterval = setInterval(myfunction, interval);
+        }
 
-let licznik = 0;
+        function myfunction() {
+            i++;
+            let str = "Liczba: " + i;
+            document.getElementById("text").innerHTML = str;
 
-function stopInter() {
-    if(i % 7 == 0 || toString(i).includes('7'))
-    {   
-        licznik++;    
-        document.getElementById("i").innerHTML = licznik;
-    }
-}
+            n = i.toString();
+            if(i % 7 == 0 || n.includes("7")) {   
+                document.getElementById('obraz').style.display = 'block';
+            } else {
+                document.getElementById('obraz').style.display = 'none';
+            }
+
+            if (i % 10 === 0) {
+                interval = Math.max(200, interval - 200);
+                restartInterval();
+            }
+        }
+
+        function stopInter() {
+            n = i.toString();
+            if((i % 7 == 0 || n.includes("7")) && i != 0) {   
+                licznik++;
+                document.getElementById("i").innerHTML = "Licznik: " + licznik;
+            } else {
+                licznik = 0;
+                document.getElementById("i").innerHTML = "Licznik: " + licznik;
+                i = 0;
+                let str = "Liczba " + i;
+                document.getElementById("text").innerHTML = str;
+            }
+        }
+
+        myInterval = setInterval(myfunction, interval);
